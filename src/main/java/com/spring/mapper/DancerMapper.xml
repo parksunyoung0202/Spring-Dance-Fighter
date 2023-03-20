@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.spring.mapper.DancerMapper">
+	<insert id="dancerInsert" parameterType="com.spring.entity.DancerVO">
+    	insert into dancer values (#{id},#{pw},#{name},#{nick})
+    </insert>
+    
+	<select id="dancerLogin" resultType="com.spring.entity.DancerVO" parameterType="com.spring.entity.DancerVO">
+    	select * from dancer where id = #{id} and pw = #{pw} 
+    </select>
+    
+	<select id="sabbingComments" resultType="com.spring.entity.sabbingVO">
+    	select * from sabbing
+    </select>
+    
+    <insert id="commentInsert" parameterType="com.spring.entity.sabbingVO">
+    	insert into sabbing values (#{writer},#{content})
+    </insert>
+    
+    <select id="sappingRank" resultType="com.spring.entity.rankingVO">
+    	select * from sabbingranking
+    </select>
+    
+    <select id="zerotwoRank" resultType="com.spring.entity.rankingVO">
+    	select * from zerotworanking
+    </select>
+</mapper>
